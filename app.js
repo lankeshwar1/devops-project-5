@@ -1,0 +1,1 @@
+console.log("DevOps Project 5 application started");
