@@ -16,12 +16,6 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
-                bat 'docker build -t devops-project-5:%BUILD_NUMBER% .'
-            }
-        }
-
         stage('Build') {
             steps {
                 bat 'node app.js'
