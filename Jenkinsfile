@@ -30,7 +30,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t hidimba/devops-project-5:%BUILD_NUMBER% .'
+                bat 'docker build -t hidimba/devops-project-5:%BUILD_NUMBER% -t hidimba/devops-project-5:latest .'
             }
         }
 
