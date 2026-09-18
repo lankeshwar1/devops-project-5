@@ -4,26 +4,26 @@ pipeline {
     stages {
         stage('Verify Environment') {
             steps {
-                bat 'git --version'
-                bat 'java -version'
+                bat 'node --version'
+                bat 'npm -version'
+            }
+        }
+
+        stage('Install') {
+            steps {
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building application...'
+                bat 'node app.js'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
+                bat 'npm test'
             }
         }
     }
