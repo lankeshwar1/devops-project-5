@@ -39,10 +39,10 @@ pipeline {
                 bat 'docker build -t hidimba/devops-project-5:%BUILD_NUMBER% .'
             }
         }
-    
+
         stage('Docker Push') {
             steps {
-            withCredentials([usernamePassword(
+                withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
                     usernameVariable: 'DOCKER_USERNAME',
                     passwordVariable: 'DOCKER_PASSWORD'
@@ -50,9 +50,7 @@ pipeline {
                     bat 'docker login -u "%DOCKER_USERNAME%" -p "%DOCKER_PASSWORD%"'
                     bat 'docker push hidimba/devops-project-5:%BUILD_NUMBER%'
                 }
-
             }
         }
-
     }
 }
