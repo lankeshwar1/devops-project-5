@@ -48,5 +48,12 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy') {
+            steps {
+                bat 'docker rm -f devops-project-5-container || exit 0'
+                bat 'docker run -d --name devops-project-5-container -p 3000:3000 hidimba/devops-project-5:%BUILD_NUMBER%'
+            }
+        }
     }
 }
