@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'node app.js'
+                bat 'node --check app.js'
             }
         }
 
