@@ -55,5 +55,11 @@ pipeline {
                 bat 'docker run -d --name devops-project-5-container -p 3000:3000 hidimba/devops-project-5:%BUILD_NUMBER%'
             }
         }
+
+        stage('Verify Deployment') {
+            steps {
+                bat 'curl --fail http://localhost:3000'
+            }
+        }
     }
 }
